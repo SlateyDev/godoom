@@ -1,0 +1,23 @@
+[configuration]
+
+entry_symbol = "godoom_init"
+compatibility_minimum = 4.1
+
+[libraries]
+
+macos.debug = ""
+macos.release = ""
+windows.debug.x86_32 = ""
+windows.release.x86_32 = ""
+windows.debug.x86_64 = "res://addons/godoom/bin/godoom.windows.template_debug.x86_64.dll"
+windows.release.x86_64 = "res://addons/godoom/bin/godoom.windows.template_release.x86_64.dll"
+linux.debug.x86_64 = ""
+linux.release.x86_64 = ""
+linux.debug.arm64 = ""
+linux.release.arm64 = ""
+linux.debug.rv64 = ""
+linux.release.rv64 = ""
+android.debug.x86_64 = ""
+android.release.x86_64 = ""
+android.debug.arm64 = ""
+android.release.arm64 = ""

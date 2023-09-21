@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://d2igxgq48blfs"]
+
+[ext_resource type="Shader" path="res://main.gdshader" id="1_eajx0"]
+[ext_resource type="Script" path="res://MeshInstance3D.gd" id="1_xr7xm"]
+[ext_resource type="Material" uid="uid://ccfjsmbm2yxkq" path="res://main.tres" id="3_2cn6x"]
+[ext_resource type="PackedScene" uid="uid://bujdlf8nrulp8" path="res://monkey.glb" id="3_stc8o"]
+[ext_resource type="Script" path="res://monkey.gd" id="4_66ume"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_7tycg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0t432"]
+render_priority = 0
+shader = ExtResource("1_eajx0")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = null
+shader_parameter/roughness = null
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = null
+shader_parameter/metallic = null
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = null
+shader_parameter/texture_albedo = SubResource("ImageTexture_7tycg")
+
+[sub_resource type="TorusMesh" id="TorusMesh_kdoue"]
+material = SubResource("ShaderMaterial_0t432")
+
+[sub_resource type="BoxMesh" id="BoxMesh_dc4pt"]
+material = ExtResource("3_2cn6x")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58496, 0, 0)
+mesh = SubResource("TorusMesh_kdoue")
+script = ExtResource("1_xr7xm")
+input_enabled = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_dc4pt")
+script = ExtResource("1_xr7xm")
+
+[node name="monkey" parent="." instance=ExtResource("3_stc8o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53659, 0, 0)
+script = ExtResource("4_66ume")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.829925, -0.283571, 0.48043, 7.45058e-09, 0.861177, 0.508305, -0.557876, -0.421855, 0.714712, 1.17798, 1.29092, 1.8796)
+fov = 52.8
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.772567, 0.422749, -0.473733, 0, 0.746116, 0.665817, 0.634933, -0.514388, 0.576425, -2.14659, 1.50922, 2.07509)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.646284, -0.508083, 0.569359, 3.51013e-08, 0.746115, 0.665817, -0.763097, -0.430306, 0.482202, 3.71482, 1.50922, 2.12716)
